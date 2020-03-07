@@ -4,7 +4,7 @@ public class CoronaData {
 	
 	private String state;
 	private String country;
-	private String latestTotalCases;
+	private int latestTotalCases;
 	
 	public String getState() {
 		return state;
@@ -18,10 +18,10 @@ public class CoronaData {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	public String getLatestTotalCases() {
+	public int getLatestTotalCases() {
 		return latestTotalCases;
 	}
-	public void setLatestTotalCases(String string) {
+	public void setLatestTotalCases(int string) {
 		this.latestTotalCases = string;
 	}
 	

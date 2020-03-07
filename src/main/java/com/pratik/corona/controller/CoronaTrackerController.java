@@ -27,8 +27,9 @@ public class CoronaTrackerController {
 	{
 		List<CoronaData> locationdetails=coronaVirusServices.fetchvisusData();
 		model.addAttribute("locationdetails", locationdetails);
-	//	int totalReportedCases = locationdetails.stream().mapToInt(start -> start.getLatestTotalCases()).sum();
-	
+		int totalReportedCases = locationdetails.stream().mapToInt(start -> start.getLatestTotalCases()).sum();
+		model.addAttribute("totalReportedCases", totalReportedCases);
+		System.out.println(totalReportedCases);
 		
 		return "home";
 	}
