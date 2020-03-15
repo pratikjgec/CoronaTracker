@@ -12,16 +12,32 @@
 	crossorigin="anonymous">
 </head>
 <link rel="icon" src="coronaImage.png">
+
 <body>
 	<div class="container">
 		<h1>Coronavirus Tracker Application</h1>
-		<p>This application lists the current number of cases reported across the globe</p>
+		<p>This application lists the current number of cases reported
+			across the globe</p>
 		<p>Data Repository by Johns Hopkins CSSE</p>
-		<h5>Developer : Pratik Dutta</h5>
-		
+
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h5>Developer : Pratik Dutta</h5>
+				</div>
+				<div class="col">
+					<!-- hitwebcounter Code START -->
+
+					<img
+						src="https://hitwebcounter.com/counter/counter.php?page=7209286&style=0010&nbdigits=5&type=page&initCount=25"
+						title="User Stats" Alt="webcounterwebsite" border="0">
+				</div>
+			</div>
+
+		</div>
 		<div class="jumbotron">
 			<table class="table">
-			<p>Total cases reported as of Today</p>
+				<p>Total cases reported as of Today</p>
 				<tr>
 					<th>Total Confirmed</th>
 					<th>Total Deaths</th>
@@ -31,9 +47,9 @@
 					<td th:text="${totalReportedCases}"></td>
 					<td th:text="${totalDeaths}"></td>
 					<td th:text="${totalRecovered}"></td>
-					
+
 				</tr>
-				
+
 
 			</table>
 		</div>
