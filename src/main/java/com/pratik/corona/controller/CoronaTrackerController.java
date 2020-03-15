@@ -20,7 +20,7 @@ public class CoronaTrackerController {
 	
 	@Autowired
 	CoronaVirusServices coronaVirusServices;
-	//CoronaData cdObj;
+	CoronaData cdObj;
 	
 	@GetMapping("/")
 	public String home(Model model) throws IOException 
@@ -28,8 +28,13 @@ public class CoronaTrackerController {
 		List<CoronaData> locationdetails=coronaVirusServices.fetchvisusData();
 		model.addAttribute("locationdetails", locationdetails);
 		int totalReportedCases = locationdetails.stream().mapToInt(start -> start.getLatestTotalCases()).sum();
+		int totalDeaths = locationdetails.stream().mapToInt(start -> start.getDeaths()).sum();
+		int totalRecovered = locationdetails.stream().mapToInt(start -> start.getRecoverd()).sum();
 		model.addAttribute("totalReportedCases", totalReportedCases);
-		System.out.println(totalReportedCases);
+		model.addAttribute("totalDeaths", totalDeaths);
+		model.addAttribute("totalRecovered", totalRecovered);
+		
+		//System.out.println(cdObj.getdate());
 		
 		return "home";
 	}

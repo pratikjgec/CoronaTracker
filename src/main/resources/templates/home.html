@@ -4,36 +4,57 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Corona Tracker</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<title>Corona Tracker</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
 </head>
-
+<link rel="icon" src="coronaImage.png">
 <body>
-<div class="container">
-<h1>Coronavirus Tracker Application</h1>
-<p>This application lists the current number of cases reported across the globe</p>
-<h5>Developer : Pratik Dutta</h5>
+	<div class="container">
+		<h1>Coronavirus Tracker Application</h1>
+		<p>This application lists the current number of cases reported across the globe</p>
+		<p>Data Repository by Johns Hopkins CSSE</p>
+		<h5>Developer : Pratik Dutta</h5>
+		
+		<div class="jumbotron">
+			<table class="table">
+			<p>Total cases reported as of Today</p>
+				<tr>
+					<th>Total Confirmed</th>
+					<th>Total Deaths</th>
+					<th>Total Recovered</th>
+				</tr>
+				<tr>
+					<td th:text="${totalReportedCases}"></td>
+					<td th:text="${totalDeaths}"></td>
+					<td th:text="${totalRecovered}"></td>
+					
+				</tr>
+				
 
-<div class="jumbotron">
-    <h1 class="display-4" th:text="${totalReportedCases}"></h1>
-    <p class="lead">Total cases reported as of today</p>
-    <hr class="my-4">
-</div>
+			</table>
+		</div>
 
-    <table class="table">
-        <tr>
-            <th>State</th>
-            <th>Country</th>
-            <th>Total cases reported</th>
-        </tr>
-        <tr th:each="locationStat : ${locationdetails}">
-            <td th:text="${locationStat.state}"></td>
-            <td th:text="${locationStat.country}"></td>
-            <td th:text="${locationStat.latestTotalCases}"></td>
-        </tr>
-    </table>
-</div>
+		<table class="table">
+			<tr>
+				<th>Country</th>
+				<th>State</th>
+				<th>Confirmed</th>
+				<th>Deaths</th>
+				<th>Recovered</th>
+			</tr>
+			<tr th:each="locationStat : ${locationdetails}">
+				<td th:text="${locationStat.country}"></td>
+				<td th:text="${locationStat.state}"></td>
+				<td th:text="${locationStat.latestTotalCases}"></td>
+				<td th:text="${locationStat.deaths}"></td>
+				<td th:text="${locationStat.recoverd}"></td>
+			</tr>
+		</table>
+	</div>
 </body>
 
 </html>

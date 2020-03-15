@@ -18,8 +18,10 @@ import com.pratik.corona.Model.CoronaData;
 @Service
 public class CoronaVirusServices {
 
-	private static String VIRUS_DATA_URL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv";
+	private static String VIRUS_DATA_URL ="https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-14-2020.csv";
+			//"https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv";
 
+	
 	public static List<CoronaData> fetchvisusData() throws IOException {
 		List<CoronaData> list = new ArrayList<>();
 
@@ -46,8 +48,15 @@ public class CoronaVirusServices {
 			// int latestTotalCases=record.get((record.size()-1));
 			cd.setState(record[0]);
 			cd.setCountry(record[1]);
+//			cd.setLatestTotalCases(record[3]);
+//			cd.setDeaths(record[4]);
+//			cd.setRecoverd(record[5]);
+			
+			
 			try {
-				cd.setLatestTotalCases(Integer.parseInt(record[record.length - 1]));
+				cd.setLatestTotalCases(Integer.parseInt(record[3]));
+				cd.setDeaths(Integer.parseInt(record[4]));
+				cd.setRecoverd(Integer.parseInt(record[5]));
 			} catch (Exception e) {
 
 			}
@@ -57,7 +66,7 @@ public class CoronaVirusServices {
 			cd = null;
 
 		}
-		System.out.println(list);
+		
 		return list;
 
 	}
